@@ -63,7 +63,7 @@ jobs:
             exit 1
           fi
         id: diffvsts
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: ${{ failure() && steps.diffvsts.conclusion == 'failure' }}
         with:
           name: dist
@@ -177,7 +177,7 @@ jobs:
           AZURE_TOKEN: ${{ secrets.AZURE_TOKEN }}
       - name: Upload vsix
         if: steps.filter.outputs.azure-dev == 'true'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: qodana-dev.vsix
           path: vsts/qodana-dev.vsix
